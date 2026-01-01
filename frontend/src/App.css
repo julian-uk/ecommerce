@@ -1,0 +1,508 @@
+/* 1. MODERN RESET & FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background-color: #f4f7fa; /* Softer, professional light blue-grey */
+  color: #2d3436;
+  line-height: 1.6;
+}
+
+/* 2. LAYOUT WRAPPERS */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.main-content {
+  padding: 40px 0;
+}
+
+/* 3. NAVIGATION */
+.navbar {
+  background-color: #ffffff;
+  padding: 18px 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between; /* This pushes logo to left and menu to right */
+  align-items: center;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0984e3;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  padding-right: 20px; /* Extra safety gap */
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: #636e72;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-item:hover {
+  color: #0984e3;
+}
+
+/* Cart Badge Enhancement */
+.cart-link {
+  position: relative;
+  padding: 8px 12px;
+  background: #f1f2f6;
+  border-radius: 8px;
+}
+
+.cart-badge {
+  background-color: #ff4757;
+  color: white;
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: 10px;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  box-shadow: 0 2px 5px rgba(255,71,87,0.3);
+}
+
+/* 4. PRODUCT GRID & CARDS */
+/* The Grid - center it and give it a max width */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+/* The Card - make it a flex container that stretches */
+.product-card {
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  height: 100%;           /* Force all cards to equal height */
+  transition: all 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* The Details - this is the secret to alignment */
+.product-details {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* This takes up all available space, pushing the button down */
+  text-align: left;
+}
+
+.product-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.product-description {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 1rem;
+  /* Keeps description to exactly 3 lines so cards stay uniform */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.price-row {
+  margin-top: auto; /* Pushes price and button to the bottom of the details area */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.product-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0984e3;
+}
+
+.product-actions {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+}
+
+/* This handles the main 'Add to Cart' and admin button area */
+.product-actions {
+  padding: 0 1.25rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column; /* Stack Add to Cart on top of Admin buttons */
+  gap: 10px;               /* Space between rows of buttons */
+}
+
+/* This specifically handles the Edit and Delete buttons if they are side-by-side */
+.admin-controls {
+  display: flex;
+  flex-direction: row;    /* Put Edit and Delete on the same line */
+  gap: 10px;              /* Space between Edit and Delete */
+  width: 100%;
+}
+
+.admin-controls .btn-edit, 
+.admin-controls .btn-delete {
+  flex: 1;                /* Make both buttons equal width */
+  padding: 8px;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* 6. CART PAGE SPECIFICS */
+
+.cart-container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+}
+
+.cart-item-card {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #f1f2f6;
+}
+
+.cart-item-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.item-info h3 {
+  font-size: 1.1rem;
+  margin-bottom: 5px;
+}
+
+/* Style the + and - buttons in the Cart */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Consistent padding between - , number, and + */
+  margin-top: 8px;
+}
+
+.quantity-controls button {
+  background-color: #ffffff;
+  color: #0984e3;
+  border: 1px solid #dcdde1;
+  width: 24px;  /* Smaller width */
+  height: 24px; /* Smaller height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px; /* Slightly sharper corners for a mini look */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0; /* Ensures the symbols stay centered */
+}
+
+.quantity-controls button:hover {
+  background-color: #0984e3;
+  color: #ffffff;
+  border-color: #0984e3;
+}
+
+.quantity-controls span {
+  font-weight: 600;
+  font-size: 0.9rem; /* Slightly smaller text for the number */
+  color: #2d3436;
+  min-width: 15px;
+  text-align: center;
+}
+
+.remove-btn {
+  background: #fff0f0;          /* Very light red background */
+  color: #ff4757;               /* Red × */
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: #ff4757;
+  color: white;
+}
+
+.cart-summary {
+  background: #f8f9fa;
+  padding: 25px;
+  border-radius: 16px;
+  border: 1px solid #eef0f2;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between; /* This creates the space in the middle */
+  align-items: center;
+  margin: 12px 0;
+  font-size: 0.95rem;
+  color: #636e72;
+}
+
+/* Specifically for the Total row to make it stand out */
+.summary-row.total {
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 2px solid #dfe6e9; /* Adds a nice line above the total */
+  color: #2d3436;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.summary-row span:last-child {
+  font-weight: 600; /* Makes the prices slightly bolder than the labels */
+  color: #2d3436;
+}
+
+/* 1. Add spacing and distinct styles for the action buttons */
+.checkout-btn {
+  width: 100%;
+  background: #00b894;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 20px; /* Space above the first button */
+  transition: background 0.2s;
+}
+
+.checkout-btn:hover {
+  background: #009475;
+}
+
+.clear-btn {
+  width: 100%;
+  background: transparent;
+  color: #636e72;
+  border: 1px solid #dfe6e9;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px; /* THIS creates the gap between the two buttons */
+  transition: all 0.2s;
+}
+
+.clear-btn:hover {
+  background: #fff0f0; /* Light red tint on hover */
+  color: #ff4757;
+  border-color: #fab1a0;
+}
+
+/* 7. AUTHENTICATION */
+.auth-wrapper {
+  background: linear-gradient(135deg, #0984e3 0%, #6c5ce7 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-card {
+  background: white;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 8. Edit / Add Products*/
+/* Container for the Form */
+.form-container {
+  max-width: 650px;           /* Perfect width for laptop screens */
+  margin: 50px auto;          /* Centered on page */
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Ensure the Form itself fills the container */
+.product-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Form Groups: The space between each row */
+.form-group {
+  width: 100%;
+  margin-bottom: 20px;        /* Consistent vertical spacing */
+  text-align: left;
+}
+
+.form-group label {
+  display: block;             /* Forces label to its own line */
+  width: 100%;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #2d3436;
+  font-size: 0.95rem;
+}
+
+/* Input Fields: Fully Justified */
+.form-group input, 
+.form-group textarea {
+  width: 100%;                /* Fills the entire width of the form */
+  padding: 12px 16px;
+  font-size: 1rem;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+  outline: none;
+  display: block;             /* Ensures no inline interference */
+}
+
+/* Highlight field on click */
+.form-group input:focus, 
+.form-group textarea:focus {
+  border-color: #0984e3;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.1);
+}
+
+/* Full Width Buttons */
+.form-actions {
+  display: flex;
+  flex-direction: column;     /* Stack buttons for full-width look */
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.btn-submit {
+  width: 100%;
+  background: #0984e3;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  width: 100%;
+  background: #f1f2f6;
+  color: #636e72;
+  text-align: center;
+  padding: 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Ensure numeric inputs look consistent with text inputs */
+.form-group input[type="number"] {
+  width: 100%;
+  display: block;
+  -moz-appearance: textfield; /* Remove default arrows in Firefox if desired */
+}
+
+/* Optional: Keep the arrows but ensure they have room */
+.form-group input::-webkit-outer-spin-button,
+.form-group input::-webkit-inner-spin-button {
+  margin-left: 10px;
+}
+
+/* FORCE ALL INPUTS TO BE VISIBLE */
+.form-group input, 
+.form-group textarea,
+.product-form input,
+.product-form textarea {
+  background-color: #ffffff !important; /* Forces background to be Pure White */
+  color: #2d3436 !important;            /* Forces text to be Dark Grey/Black */
+  border: 2px solid #ced4da !important;  /* Visible grey border */
+  opacity: 1 !important;                 /* Ensures no transparency */
+}
+
+/* Ensure placeholder text is also visible (usually a lighter grey) */
+::placeholder {
+  color: #a0aec0 !important;
+  opacity: 1; 
+}
+
+/* Change border color when clicking so the user knows where they are */
+.form-group input:focus, 
+.form-group textarea:focus {
+  border-color: #0984e3 !important;
+  box-shadow: 0 0 0 3px rgba(9, 132, 227, 0.2) !important;
+  outline: none;
+}

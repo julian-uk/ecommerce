@@ -1,0 +1,168 @@
+.orders-wrapper {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .orders-page-header {
+    margin-bottom: 40px;
+    text-align: left;
+  }
+  
+  .orders-page-header h1 {
+    font-size: 2.5rem;
+    color: #1a202c;
+    margin-bottom: 8px;
+  }
+  
+  .orders-page-header p {
+    color: #718096;
+    font-size: 1.1rem;
+  }
+  
+  /* Card Styling */
+  .order-card-premium {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    overflow: hidden;
+  }
+  
+  .order-card-premium:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+  
+  .order-card-header {
+    background: #f8fafc;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .meta-label {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: #a0aec0;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  
+  .meta-value {
+    color: #2d3748;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  
+  /* Status Pills */
+  .status-pill {
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  
+  .status-pill.pending { background: #fffaf0; color: #9c4221; border: 1px solid #feebc8; }
+  .status-pill.completed { background: #f0fff4; color: #22543d; border: 1px solid #c6f6d5; }
+  .status-pill.shipped { background: #ebf8ff; color: #2a4365; border: 1px solid #bee3f8; }
+  
+  .order-card-body {
+    padding: 30px;
+    text-align: left;
+  }
+  
+  .order-number {
+    color: #a0aec0;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+  }
+  
+  .order-number span { color: #2d3748; font-weight: 600; }
+  
+  .mini-item-preview {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  
+  .mini-thumb {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #f1f5f9;
+  }
+  
+  .order-card-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #f1f5f9;
+    display: flex;
+    gap: 15px;
+  }
+  
+  .btn-details, .btn-invoice {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-details {
+    background: #007bff;
+    color: white;
+    border: none;
+  }
+  
+  .btn-details:hover { background: #0056b3; }
+  
+  .btn-invoice {
+    background: white;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .btn-invoice:hover { background: #f7fafc; }
+
+  .order-items-preview {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .mini-item-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fdfdfd;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #f1f5f9;
+  }
+  
+  .mini-thumb {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #eee;
+  }
+  
+  .mini-name {
+    font-size: 0.9rem;
+    color: #4a5568;
+  }
+  
+  .mini-name small {
+    color: #a0aec0;
+    margin-left: 5px;
+  }

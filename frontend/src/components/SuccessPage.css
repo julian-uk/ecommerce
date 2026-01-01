@@ -1,0 +1,47 @@
+.success-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+  }
+  
+  .success-card {
+    background: white;
+    padding: 50px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .success-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    display: inline-block;
+    background: #e6faf4;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 50%;
+  }
+  
+  .order-details-mini {
+    background: #f8fafc;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 25px 0;
+    border: 1px solid #edf2f7;
+  }
+  
+  .success-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btn-secondary {
+    color: #0984e3;
+    text-decoration: none;
+    font-weight: 600;
+  }
