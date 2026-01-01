@@ -167,7 +167,8 @@ router.get('/google/callback',
         };
         const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1d' });
 
-        const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+        //const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:5173';
+        const frontendUrl = process.env.FRONTEND_URL;
         res.redirect(`${frontendUrl}/login-success?token=${token}`);
         //res.redirect(`http://localhost:5173/login-success?token=${token}`);
 
