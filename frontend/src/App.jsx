@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkAuthStatus } from './slices/auth/authSlice';
-import Login from './slices/auth/login';
+import Login from './slices/auth/Login';
 import Register from './slices/auth/Register';
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
