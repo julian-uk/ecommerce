@@ -41,7 +41,7 @@ useEffect(() => {
       const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
   
       window.location.href = `${backendUrl}/auth/google`;
-}
+
     };
     
    
