@@ -36,7 +36,12 @@ useEffect(() => {
   
     const handleGoogleLogin = () => {
       // Redirect the browser to the backend route
-      window.location.href = 'http://localhost:3000/api/auth/google';
+      //window.location.href = 'http://localhost:3000/api/auth/google';
+
+      const backendUrl = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+  
+      window.location.href = `${backendUrl}/auth/google`;
+}
     };
     
    
