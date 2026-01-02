@@ -8,7 +8,8 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     //callbackURL: "http://localhost:3000/api/auth/google/callback", // Must be absolute
     callbackURL: process.env.GOOGLE_CALLBACK_URL,
-    passReqToCallback: true
+    passReqToCallback: true,
+    proxy: true
   },
   // ... strategy logic
 
