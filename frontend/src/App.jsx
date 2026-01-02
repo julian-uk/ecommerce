@@ -33,42 +33,42 @@ function App() {
   }
 
   return (
-    <Router> {/* 👈 1. Move Router to the top! */}
+    <Router>
       <div className="app-wrapper">
-        {/* Only show Navbar if logged in */}
         {isAuthenticated && <Navbar />}
 
         <main className="container">
           <Routes>
-            {/* 🔓 PUBLIC AUTH ROUTES */}
+            {/* ✅ MOVE THIS HERE: Accessible to everyone */}
+            <Route path="/login-success" element={<LoginSuccess />} />
+
             {!isAuthenticated ? (
-              <>
-                <Route 
-                  path="*" 
-                  element={
-                    <div className="auth-wrapper">
-                      <div className="auth-card">
-                        {isLoginView ? (
-                          <Login onSwitch={() => setIsLoginView(false)} />
-                        ) : (
-                          <Register onSwitch={() => setIsLoginView(true)} />
-                        )}
-                      </div>
+              // 🔓 AUTHENTICATION VIEW
+              <Route 
+                path="*" 
+                element={
+                  <div className="auth-wrapper">
+                    <div className="auth-card">
+                      {isLoginView ? (
+                        <Login onSwitch={() => setIsLoginView(false)} />
+                      ) : (
+                        <Register onSwitch={() => setIsLoginView(true)} />
+                      )}
                     </div>
-                  } 
-                />
-                {/* 2. CRITICAL: This route MUST be accessible even if !isAuthenticated */}
-                <Route path="/login-success" element={<LoginSuccess />} />
-              </>
+                  </div>
+                } 
+              />
             ) : (
+              // 🔐 PROTECTED APP VIEW
               <>
-                {/* 🔐 PROTECTED ROUTES */}
                 <Route path="/" element={<ProductList />} />
                 <Route path="/add-product" element={<AddProduct />} />
                 <Route path="/edit-product/:id" element={<EditProduct />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/success" element={<SuccessPage />} />
                 <Route path="/my-orders" element={<MyOrders />} />
+                {/* Fallback for logged in users */}
+                <Route path="*" element={<ProductList />} />
               </>
             )}
           </Routes>

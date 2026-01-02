@@ -9,22 +9,20 @@ const LoginSuccess = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    console.log("LoginSuccess component mounted"); // 1
     const params = new URLSearchParams(location.search);
     const token = params.get('token');
+    console.log("Token found:", !!token); // 2
 
     if (token) {
-      // 1. Save to localStorage IMMEDIATELY (Sync)
       localStorage.setItem('token', token);
-      
-      // 2. Update Redux
+      console.log("Token saved to localStorage"); // 3
       dispatch(setCredentials({ token }));
-
-      // 3. Wait a tiny bit or just navigate
-      // Navigating home will trigger the App.js useEffect/checkAuthStatus
+      console.log("Dispatched to Redux"); // 4
       navigate('/', { replace: true });
     }
   }, [dispatch, navigate, location]);
-
+  
   return <div>Logging you in...</div>;
 };
 
